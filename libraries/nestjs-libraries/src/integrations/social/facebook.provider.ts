@@ -167,11 +167,29 @@ export class FacebookProvider extends SocialAbstract implements SocialProvider {
     };
   }
 
+  private validateMediaContent(postDetails: PostDetails[]): void {
+    const [firstPost] = postDetails;
+    if (!firstPost?.media?.length) return;
+
+    const hasVideo = firstPost.media.some(m => m.url.indexOf('mp4') > -1);
+    const hasPhoto = firstPost.media.some(m => m.url.indexOf('mp4') === -1);
+
+    if (hasVideo && hasPhoto) {
+      throw new Error('Facebook posts cannot contain both videos and photos');
+    }
+
+    if (hasVideo && firstPost.media.length > 1) {
+      throw new Error('Facebook posts can only contain one video at a time');
+    }
+  }
+
   async post(
     id: string,
     accessToken: string,
     postDetails: PostDetails[]
   ): Promise<PostResponse[]> {
+    this.validateMediaContent(postDetails);
+    
     const [firstPost, ...comments] = postDetails;
 
     let finalId = '';
