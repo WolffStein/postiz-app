@@ -48,7 +48,7 @@
     "@langchain/core": "^0.3.26",
     "@langchain/langgraph": "^0.2.34",
     "@langchain/openai": "^0.3.16",
-    "@mantine/core": "^5.10.5",
+    "@mantine/core": "^7.0.0",
     "@mantine/dates": "^5.10.5",
     "@mantine/hooks": "^5.10.5",
     "@mantine/modals": "^5.10.5",
