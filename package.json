@@ -105,7 +105,7 @@
     "ai": "^4.0.22",
     "algoliasearch": "^5.18.0",
     "array-move": "^4.0.0",
-    "axios": "^1.7.7",
+    "axios": "^1.12.0",
     "bcrypt": "^5.1.1",
     "bufferutil": "^4.0.8",
     "bullmq": "^5.12.12",
